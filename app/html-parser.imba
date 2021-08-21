@@ -25,30 +25,33 @@ export def parse argument
 		# logr next
 		switch current.name
 			when "attributeName" # "class" 						# DONE: remove class attr name
-				if current.val is 'class' then parsed+='' else parsed+=current.val
+				if current.val is 'class' or current.val is 'style' then parsed+='' else parsed+=current.val
 			when "attributeAssign" # "=" 						# DONE: remove = sign from class
-				if prev.val is 'class' then parsed+='' else parsed+=current.val
+				if prev.val is 'class' or prev.val is 'style' then parsed+='' else parsed+=current.val
 			when "attributeValueStart" # "\"" 					# DONE: Remove open quote from class
 				# logr current,prev,prev2,prev3
-				if prev3.val is 'class' then parsed+='' else parsed+=current.val
+				if prev3.val is 'class' or prev3.val is 'style' then parsed+='' else parsed+=current.val
 			when "attributeValueData" # "size-choice-3-lable"
 				if parsed[-1] is ' ' 							# DONE: make classes compatible with imba, dots and curly braces when needed
-					let res = ''
-					let classArr = current.val.split(' ')
-					for item in classArr
-						if /\d\.\d/.test(item) # if has class has decimal like "py-0.5"
-							res += ".\{'" + item + "'\}"
-						elif /:/g.test(item) # NOTE: if has colon
-							res += ".\{'" + item + "'\}"
-						elif /^\W/g.test(item) # NOTE: if starts with non-letter character
-							res += ".\{'" + item + "'\}"
-						else
-							res += ".{item}"
-					parsed+=res
+					if prev4.val is 'class'
+						let res = ''
+						let classArr = current.val.split(' ')
+						for item in classArr
+							if /\d\.\d/.test(item) # if has class has decimal like "py-0.5"
+								res += ".\{'" + item + "'\}"
+							elif /:/g.test(item) # NOTE: if has colon
+								res += ".\{'" + item + "'\}"
+							elif /^\W/g.test(item) # NOTE: if starts with non-letter character
+								res += ".\{'" + item + "'\}"
+							else
+								res += ".{item}"
+						parsed+=res
+					if prev4.val is 'style'
+						parsed+= "[{current.val}]"
 				else
 					parsed+=current.val
 			when "attributeValueEnd" # "\"" 					# DONE: Remove end quote from class attributes
-				if prev5.val is "class" then parsed+="" else parsed+='"'
+				if prev5.val is "class" or prev5.val is 'style' then parsed+="" else parsed+='"'
 			when "tagSpace" # // whitespace and/ or slashes within tags
 				parsed+=current.val
 			when "commentStart" # '<!--'

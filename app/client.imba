@@ -29,17 +29,18 @@ tag app
 		bg:indigo5 
 		bdb: 5px solid indigo9
 		shadow:sm, md, lg
-		w:100%
+		w:14rem
 		# mx:auto
 		@hover
 			bg: indigo6
 		@active
+			bg: indigo7
 			bdt: 5px solid indigo9
 			bdb: 0
 			shadow:sm, md inset
 		c:white fw:bolder fs:sm my:1rem
 	css div.output
-			c:cooler4 of:scroll
+			c:cooler4 of:scroll py:2rem
 			shadow:rose4 inset
 			bg:cooler9 
 			w:100%
@@ -47,10 +48,10 @@ tag app
 			min-height:10rem
 			rd:lg
 			pb:3rem
-			fs:xxs
+			fs:sm
 	def render
 		<self>
-			<h1[ff:sans-serif fs:6xl m:0 c:indigo6]> "HTML 👉 IMBA"
+			<h1[ff:sans-serif fs:6xl mb:3rem c:indigo6 ff:sans fw:bold]> "HTML 👉 IMBA"
 			<textarea bind=state.html placeholder="Paste HTML snippets from your favorite UI framework to convert it to Imba syntax.">
 			<button @click=api.convert(state.html)> "Convert"
 			<div.output>
