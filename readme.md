@@ -1,19 +1,23 @@
-# Getting Started
+# HTML 2 IMBA
+An app built with [imba](https://imba.io) to convert HTML snippets to Imba's indented templating Syntax. 
 
-This project was bootstrapped with [imba-base-template](https://github.com/imba/imba-base-template).
+The app is live at [html2imba.web.app](https://html2imba.web.app)
 
-## Available Scripts
+P.S. I built this in a couple of days without any previous experience with building compilers, so PR's are very welcome.
 
-In the project directory, you can run:
+# To Run this project locally
+clone repository
+`git clone https://github.com/ericvida/html2imba.git`
 
-### `npm start`
+install dependencies
+`npm install`
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+start live server
+`npm start`
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+Open [http://localhost:3000](http://localhost:3000) on your browser for a live, hot-reloading preview on your browser.
 
-### `npm run build`
+build project
+`npm run build`
 
 Builds the app for production to the `dist` folder.
