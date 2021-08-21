@@ -1,0 +1,20 @@
+{
+  "name": "08-html-lexer",
+  "scripts": {
+    "start": "imba -w server.imba",
+    "build": "imba build -P server.imba"
+  },
+  "dependencies": {
+    "tiny-html-lexer": "^1.0.0-rc",
+    "pretty": "^2.0.0",
+    "convert-to-tabs": "^1.0.3",
+    "express": "^4.17.1",
+    "imba": "^2.0.0-alpha.146",
+    "tailwindcss": "^2.2.7"
+  },
+  "description": "",
+  "version": "1.0.0",
+  "homepage": "https://github.com//08-html-lexer",
+  "author": "Author Name (https://github.com/)",
+  "license": "ISC"
+}
