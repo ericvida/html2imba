@@ -90,6 +90,7 @@ export def parse argument
 				# 	parsed+="current.val"
 				if prev.val is ' ' and next.name is 'newline'
 					parsed+= "{current.val}\""  # DOES: if last word of string
+				
 				elif prev.val is ' ' and next.name isnt 'newline'
 					if next.name is 'endTagStart'
 						parsed+= "{current.val}\"" # DOES: if middle word of string
@@ -98,13 +99,16 @@ export def parse argument
 							parsed+= "\"{current.val}" # DOES: if middle word of string
 						else
 							parsed+= "{current.val}" # DOES: if middle word of string
+				
 				elif /\t{1,}/.test(prev.val) # DOES: if word is on new line
 					if next.val is '\n' # DOES: if first and last word
 						parsed+= "\"{current.val}\""
 					else # DOES: if first word of string
 						parsed+= "\"{current.val}"
+				
 				elif next.name is 'endTagStart'
 					parsed+= " \"{current.val}\""
+				
 				elif next.val is ' ' # if not last word
 					if prev.val is '>' # DOES: if word is after tag
 						parsed+= " \"{current.val}"
@@ -112,14 +116,14 @@ export def parse argument
 						parsed+= "{current.val}"
 					# else # DOES: if last word of string
 					# 	parsed+= " \"{current.val}"
+				
 				elif next.val is '\n'
 					parsed+= "{current.val}\""
 					
 				else # DOES: if next value isn't space
+					parsed+= "{current.val}"
 					# logr next.val
 					# parsed+=current.val
-					parsed+= "{current.val}"
-					
 					# logr next.name
 				# if prev.val is '>'
 				# 	current.val

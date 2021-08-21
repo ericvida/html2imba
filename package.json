@@ -2,15 +2,16 @@
   "name": "08-html-lexer",
   "scripts": {
     "start": "imba -w server.imba",
-    "build": "imba build -P server.imba"
+    "build": "imba build -P server.imba && firebase deploy"
   },
   "dependencies": {
-    "tiny-html-lexer": "^1.0.0-rc",
-    "pretty": "^2.0.0",
+    "clipboard": "^2.0.8",
     "convert-to-tabs": "^1.0.3",
     "express": "^4.17.1",
     "imba": "^2.0.0-alpha.146",
-    "tailwindcss": "^2.2.7"
+    "pretty": "^2.0.0",
+    "tailwindcss": "^2.2.7",
+    "tiny-html-lexer": "^1.0.0-rc"
   },
   "description": "",
   "version": "1.0.0",
