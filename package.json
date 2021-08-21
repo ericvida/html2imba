@@ -2,7 +2,8 @@
   "name": "08-html-lexer",
   "scripts": {
     "start": "imba -w server.imba",
-    "build": "imba build -P server.imba && firebase deploy"
+    "build": "imba build -P server.imba",
+    "deploy": "imba build -P server.imba && firebase deploy"
   },
   "dependencies": {
     "clipboard": "^2.0.8",
