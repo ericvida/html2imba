@@ -3,7 +3,7 @@
   "scripts": {
     "start": "imba -w server.imba",
     "build": "imba build -P server.imba",
-    "deploy": "imba build -P server.imba && firebase deploy"
+    "deploy": "imba build -P server.imba"
   },
   "dependencies": {
     "clipboard": "^2.0.8",
